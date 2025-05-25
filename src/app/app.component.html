@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Calculadoras de Engenharia Civil</h1>
+
+  <div class="botoes">
+    <button class="calc-btn" (click)="abrirCalculadora('cimento')">Traço de Cimento</button>
+    <button class="calc-btn" (click)="abrirCalculadora('concreto')">Concreto</button>
+    <button class="calc-btn" (click)="abrirCalculadora('argamassa')">Argamassa</button>
+  </div>
+
+  <div class="modal-overlay" *ngIf="calculadoraAberta">
+    <div class="modal-content">
+      <button class="fechar-btn" (click)="fecharModal()">×</button>
+
+      <app-traco-calc *ngIf="calculadoraAberta === 'cimento'"></app-traco-calc>
+      <app-concreto-calc *ngIf="calculadoraAberta === 'concreto'"></app-concreto-calc>
+      <app-argamassa-calc *ngIf="calculadoraAberta === 'argamassa'"></app-argamassa-calc>
+    </div>
+  </div>
+</div>

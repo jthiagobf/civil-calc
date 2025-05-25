@@ -1,0 +1,92 @@
+<!-- argamassa-calc.component.html -->
+<div class="calc-container">
+
+  <form (ngSubmit)="calcular()" #calcForm="ngForm" *ngIf="!resultado" novalidate>
+
+    <label>
+      Volume (m³):
+      <input
+        type="number"
+        [(ngModel)]="volume"
+        name="volume"
+        min="0.1"
+        step="0.1"
+        required
+        #volumeModel="ngModel"
+        placeholder="Ex: 1.0"
+        title="Digite o volume em metros cúbicos (ex: 1.0)"
+      />
+    </label>
+    <div class="error" *ngIf="volumeModel.invalid && volumeModel.touched">
+      Volume deve ser maior que zero.
+    </div>
+
+    <label>
+      Cimento (kg/m³):
+      <input
+        type="number"
+        [(ngModel)]="cimento"
+        name="cimento"
+        min="10"
+        step="10"
+        required
+        #cimentoModel="ngModel"
+        placeholder="Ex: 300"
+        title="Quantidade de cimento em kg por metro cúbico"
+      />
+    </label>
+    <div class="error" *ngIf="cimentoModel.invalid && cimentoModel.touched">
+      Informe um valor válido para cimento.
+    </div>
+
+    <label>
+      Areia (kg/m³):
+      <input
+        type="number"
+        [(ngModel)]="areia"
+        name="areia"
+        min="10"
+        step="10"
+        required
+        #areiaModel="ngModel"
+        placeholder="Ex: 900"
+        title="Quantidade de areia em kg por metro cúbico"
+      />
+    </label>
+    <div class="error" *ngIf="areiaModel.invalid && areiaModel.touched">
+      Informe um valor válido para areia.
+    </div>
+
+    <label>
+      Água (litros/m³):
+      <input
+        type="number"
+        [(ngModel)]="agua"
+        name="agua"
+        min="0"
+        step="5"
+        required
+        #aguaModel="ngModel"
+        placeholder="Ex: 150"
+        title="Quantidade de água em litros por metro cúbico"
+      />
+    </label>
+    <div class="error" *ngIf="aguaModel.invalid && aguaModel.touched">
+      Informe um valor válido para água.
+    </div>
+
+    <button
+      type="submit"
+      class="btn-calcular"
+      [disabled]="calcForm.invalid"
+    >
+      Calcular
+    </button>
+  </form>
+
+  <div *ngIf="resultado" class="resultado">
+    <pre>{{ resultado }}</pre>
+    <button (click)="limpar()" class="btn-limpar">Nova Conta</button>
+  </div>
+
+</div>
