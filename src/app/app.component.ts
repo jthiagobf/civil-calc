@@ -12,8 +12,8 @@ import { ArgamassaCalcComponent } from './argamassa-calc/argamassa-calc.componen
 })
 export class AppComponent {
   title = 'civil-calc';
-
   calculadoraAberta: string | null = null;
+  showConstructionModal = true;
 
   abrirCalculadora(tipo: string) {
     this.calculadoraAberta = tipo;
@@ -22,4 +22,9 @@ export class AppComponent {
   fecharModal() {
     this.calculadoraAberta = null;
   }
+
+  fecharInfoModal() {
+    this.showConstructionModal = false;
+  }
+
 }

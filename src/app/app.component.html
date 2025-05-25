@@ -1,4 +1,14 @@
 <div class="container">
+
+  <div *ngIf="showConstructionModal" class="modal-backdrop">
+    <div class="modal-content">
+      <h2>🚧 Aplicação em Construção</h2>
+      <p>As funcionalidades atuais ainda não foram totalmente validadas e novas funcionalidades serão incluídas</p>
+      <button class="close-button" (click)="fecharInfoModal()">Fechar</button>
+    </div>
+  </div>
+
+
   <h1>Calculadoras de Engenharia Civil</h1>
 
   <div class="botoes">
